@@ -2,6 +2,8 @@
 
 This is a simple plugin to create light and dark color palettes in a Penpot file and switch between them. Many designs have light and dark modes, this makes it easier to work with them in Penpot.
 
+Check out the [video intro](https://youtu.be/3KYLuvunSsE).
+
 ![Plugin screenshot](screenshot.jpg)
 
 To use this plugin in Penpot, you need access to the plugins system, which is currently in beta. Go the plugin manager, paste the URL below and hit "Install".
