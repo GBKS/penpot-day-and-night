@@ -1,6 +1,8 @@
 <script setup>
 import { computed } from 'vue'
 
+const emit = defineEmits(['select'])
+
 const props = defineProps([
   'theme',
   'info',
@@ -16,6 +18,10 @@ const classObject = computed(() => {
   return c.join(' ')
 })
 
+function select() {
+  emit('select', props.info.id) 
+}
+
 </script>
 
 <template>
@@ -28,6 +34,7 @@ const classObject = computed(() => {
   <button 
     v-if="!info.to"
     :class="classObject"
+    @click="select"
   >{{ info.name }}</button>
 </template>
 

@@ -53,7 +53,7 @@ function select(optionId) {
         :info="item"
         :theme="theme"
         :menuActive="active"
-        @click="select(item.id)"
+        @select="select"
       />
     </div>
   </div>
