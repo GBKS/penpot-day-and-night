@@ -4,6 +4,10 @@ This is a simple plugin to create light and dark color palettes in a Penpot file
 
 ![Plugin screenshot](screenshot.jpg)
 
+To use this plugin in Penpot, you need access to the plugins system, which is currently in beta. Go the plugin manager, paste the URL below and hit "Install".
+
+https://day-and-night-for-penpot.netlify.app/manifest.json
+
 ## How to use it
 
 It's best if you start using this plugin with a brand new file. You can also use it with an existing one, you just might need to re-organize your colors (see how it works below).
