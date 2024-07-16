@@ -14,7 +14,8 @@ const menuOptions = computed(() => {
   const result = ([
     {
       id: 'info',
-      name: 'How it works'
+      name: 'How it works',
+      to: 'https://github.com/GBKS/penpot-day-and-night'
     }
   ])
 

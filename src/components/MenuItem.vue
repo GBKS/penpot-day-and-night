@@ -19,7 +19,14 @@ const classObject = computed(() => {
 </script>
 
 <template>
+  <a
+    v-if="info.to"
+    :href="info.to" 
+    :class="classObject"
+    target="_blank"
+  >{{ info.name }}</a>
   <button 
+    v-if="!info.to"
     :class="classObject"
   >{{ info.name }}</button>
 </template>
@@ -37,6 +44,8 @@ const classObject = computed(() => {
   font-size: 13px;
   font-weight: 500;
   border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.1);
