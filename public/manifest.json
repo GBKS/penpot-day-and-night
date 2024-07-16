@@ -1,0 +1,13 @@
+{
+    "name": "Day & Night",
+    "description": "Easily create and switch between light and dark themes.",
+    "code": "/plugin.js",
+    "icon": "/icon.png",
+    "permissions": [
+      "content:read",
+      "content:write",
+      "library:read",
+      "library:write",
+      "user:read"
+    ]
+  }
