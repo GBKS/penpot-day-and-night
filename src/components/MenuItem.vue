@@ -21,7 +21,6 @@ const classObject = computed(() => {
 function select() {
   emit('select', props.info.id) 
 }
-
 </script>
 
 <template>

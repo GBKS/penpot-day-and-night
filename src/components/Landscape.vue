@@ -16,6 +16,10 @@ const classObject = computed(() => {
   return c.join(' ')
 })
 
+const title = computed(() => {
+  return props.active ? 'Click to see the moon' : 'Click to see the sun'
+})
+
 const stars = ref(null)
 
 function createStars() {
@@ -32,11 +36,13 @@ function createStars() {
 }
 
 createStars()
-
 </script>
 
 <template>
-  <div :class="classObject">
+  <button
+    :class="classObject"
+    :title="title"
+  >
     <div class="night-sky" />
     <div class="stars-wrap">
       <div class="stars">
@@ -79,8 +85,7 @@ createStars()
         <path class="mountain-10" d="M200 230V176.5C184 182 187 191.5 172.5 195C158 198.5 155 192 146.5 195C138 198 130 206.5 123.5 206C117 205.5 108.5 199.5 98.5 201.5C88.5 203.5 77 219.5 66.5 219.5H42.5L45.5 230H200Z" fill="#E12E56"/>
       </g>
     </svg>
-
-  </div>
+  </button>
 </template>
 
 <style scoped>
@@ -90,6 +95,9 @@ createStars()
   background-image: linear-gradient(#EB5775, #FBE366 50%);
   width: 100%;
   height: 100%;
+  appearance: none;
+  border-width: 0;
+  padding: 0;
 
   .night-sky {
     position: absolute;

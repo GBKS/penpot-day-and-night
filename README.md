@@ -16,7 +16,9 @@ It's best if you start using this plugin with a brand new file. You can also use
 
 When you click "Create color palette", the plugin sets up ~20 colors for you in your library. It includes 10 neutral colors (white to black), and 10+ extra colors along the rainbow. Use all of those colors in your design.
 
-When you close the plugin menu, you'll see a landscape that shows either day or night. Click it to switch the library colors between light and dark modes.
+After creating a palette, or when close the menu, you'll see a landscape that shows either day or night. Click it to switch the library colors between light and dark modes.
+
+There is also a "Remove color palette" button. After confirming that you really want to do this, it removes the colors that match the pattern outlined in how it works below.
 
 ## Adjusting the color palette
 
@@ -31,10 +33,6 @@ The plugin relies on a very specific organization of the colors in your library.
 - Night / Blue
 
 When the plugin switches between themes, it simply copies the color values from one of the colors in the Day/Night folders, to the main color.
-
-## Delecting the color palette
-
-There's a hidden feature to delete all the colors the plugin has created, or that match the structure above in how it works. Shift-click the "Day & Night" title in the menu. 
 
 ## Project Setup
 

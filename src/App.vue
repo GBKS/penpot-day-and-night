@@ -2,6 +2,7 @@
 import Landscape from './components/Landscape.vue'
 import MenuButton from './components/MenuButton.vue'
 import Menu from './components/Menu.vue'
+import Tip from './components/Tip.vue'
 import { ref, onMounted, computed } from 'vue'
 
 const penpotTheme = ref('dark')
@@ -9,6 +10,7 @@ const theme = ref(null)
 const menuActive = ref(true)
 const isInitialized = ref(false)
 const hasPalette = ref(null)
+const showTip = ref(false)
 
 const menuOptions = computed(() => {
   const result = ([
@@ -30,6 +32,11 @@ const menuOptions = computed(() => {
       //   id: 'detect',
       //   name: 'Detect colors'
       // })
+    } else {
+      result.push({
+        id: 'clear',
+        name: 'Clear color palette'
+      })
     }
   }
 
@@ -43,9 +50,11 @@ function toggle() {
 }
 
 function clearColors() {
-  parent.postMessage({
-    type: 'clear'
-  }, '*');
+  if(confirm('Delete all colors added by this plugin?')) {
+    parent.postMessage({
+      type: 'clear'
+    }, '*');
+  }
 }
 
 function toggleMenu() {
@@ -57,7 +66,7 @@ function toggleMenu() {
 function getState() {
   parent.postMessage({
     type: 'state'
-  }, '*');
+  }, '*')
 }
 
 const classObject = computed(() => {
@@ -72,8 +81,8 @@ const classObject = computed(() => {
 })
 
 function initPenpotTheme() {
-  const url = new URL(window.location.href);
-  const theme = url.searchParams.get("theme");
+  const url = new URL(window.location.href)
+  const theme = url.searchParams.get("theme")
   if(theme) {
     penpotTheme.value = theme
   }
@@ -84,8 +93,13 @@ function selectMenuOption(optionId) {
     case 'create':
       parent.postMessage({
         type: 'create'
-      }, '*');
-      break;
+      }, '*')
+      menuActive.value = false
+      showTip.value = true
+      break
+    case 'clear':
+      clearColors()
+      break
   }
 }
 
@@ -95,7 +109,7 @@ onMounted(() => {
   initPenpotTheme()
 
   window.addEventListener('message', function(event) {
-    console.log('Received message', event.data)
+    // console.log('Received message', event.data)
 
     const message = event.data
     if(message) {
@@ -146,6 +160,10 @@ onMounted(() => {
       :theme="theme"
       :active="!menuActive"
       @click="toggleMenu"
+    />
+    <Tip 
+      :active="showTip" 
+      @close="showTip = false"
     />
   </main>
 </template>
